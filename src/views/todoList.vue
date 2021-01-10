@@ -2,20 +2,18 @@
   <div class="todo_content">
     <h3>To Do List</h3>
     <div class="todo_input">
-      <input type="text"
-              placeholder="请输入内容"
-              v-model="input"
-              class="input">
+      <input type="text" placeholder="请输入内容
+      " class="input" v-model="input">
       <button class="btn" @click="addTo">确认</button>
     </div>
     <div class="todo_tab">
-      <table cellspacing="0" cellpadding="0">
-        <colgroup>
-          <col width="20%" />
-          <col width="40%" />
-          <col width="40%" />
-        </colgroup>
+      <table cellspacing='0' cellpadding='0'>
         <thead>
+          <colgroup>
+            <col width='20%'>
+            <col width='40%'>
+            <col width='40%'>
+          </colgroup>
           <tr>
             <th>序号</th>
             <th>内容</th>
@@ -24,7 +22,7 @@
         </thead>
         <tbody>
           <tr v-for="(item,i) in todoData"
-              :key = 'i'>
+              :key="i">
             <td>{{i+1}}</td>
             <td>{{item.todolist}}</td>
             <td>
@@ -42,8 +40,8 @@ export default {
   data () {
     return {
       input: '',
-      flag: false,
       index: -1,
+      flag: false,
       todoData: [{
         todolist: '111'
       }]
@@ -51,11 +49,11 @@ export default {
   },
   methods: {
     addTo () {
-      if (this.todoData.some((item) => item.todolist === this.input)) {
-        this.input = ''
+      if (this.input === '') {
         return false
       }
-      if (this.input === '') {
+      if (this.todoData.some((item) => item.todolist === this.input)) {
+        this.input = ''
         return false
       }
       if (!this.flag) {
@@ -71,7 +69,6 @@ export default {
       this.input = ''
     },
     edit (index) {
-      console.log(this.todoData[index])
       this.input = this.todoData[index].todolist
       this.index = index
       this.flag = true
@@ -89,15 +86,16 @@ export default {
     border: 1px solid;
     h3 {
       width: 100%;
-      background-color: pink;
-      line-height: 50px;
+      height: 50px;
+      background-color: cyan;
       text-align: center;
+      line-height: 50px;
     }
     .todo_input {
       width: 100%;
-      height: 48px;
-      line-height: 40px;
+      height: 50px;
       text-align: center;
+      line-height: 50px;
       .input {
         width: 300px;
         height: 40px;
@@ -109,29 +107,21 @@ export default {
         height: 40px;
         line-height: 10px;
         text-align: center;
-        background-color:#add;
         border: none;
+        background-color: cyan;
       }
     }
     .todo_tab {
       width: 100%;
       height: 500px;
-      overflow-y: auto;
       table {
         width: 100%;
-        thead tr th{
-          // &:nth-child(1) {
-          //   width: 20%;
-          // }
-          // &:nth-child(2) {
-          //   width: 40%;
-          // }
-          // &:nth-child(3) {
-          //   width: 40%;
-          // }
-        }
         td {
           text-align: center;
+          button {
+            background-color: cyan;
+            border: none;
+          }
         }
       }
     }
