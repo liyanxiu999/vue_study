@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+    // var obj = {
+    //   myname: "lyx"
+    // }
+    // obj.myage = 100
+    // var obox = document.getElementById('box')
+    // var obj = {}
+    // Object.defineProperty(obj,"myname",{
+    //   set (value) {
+    //     console.log("修改",value)
+    //     obox.innerText = value
+    //   },
+    //   get () {
+    //     console.log("访问")
+    //   }
+    // })
+    const object1 = {}
+    Object.defineProperty(object1,'property1',{
+      value: 42,
+      writable: true//默认为false，默认不可修改
+    })
+    object1.property1 = 77
+    console.log(object1.property1)
+  </script>
+</body>
+</html>
