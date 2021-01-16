@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <li v-for="(data,index) in list"
+        :key="index"
+    >
+      <div>{{data.name}}</div>
+      <div>{{data.price}}</div>
+      <div v-if='data.state===0'>未支付</div>
+      <div v-else-if='data.state===1'>待发货</div>
+      <div v-else='data.state===2'>已完成</div>
+    </li>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el:"#box",
+      data() {
+        return {
+          list:[
+            {
+              id:1,
+              name:'手机1',
+              price:2000,
+              state:0 //未支付
+            },
+            {
+              id:2,
+              name:'手机2',
+              price:3000,
+              state:1 //待发货
+            },
+            {
+              id:3,
+              name:'手机3',
+              price:4000,
+              state:2 //已完成
+            },
+          ]
+        }
+      },
+    })
+  </script>
+</body>
+</html>

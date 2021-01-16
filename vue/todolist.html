@@ -5,20 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/vue.js"></script>
   <title>Document</title>
-  <style>
-    .active {
-      background-color: cyan;
-    }
-  </style>
 </head>
 <body>
   <div id="box">
+    <input type="text" v-model="input">
+    <button @click="addTo">添加</button>
+    <div v-if="datalist.length === 0">暂无代办事项</div>
     <li v-for="(item,index) in datalist"
         :key="index"
-        :class="{active:index === isSelect}"
-        @click = "handleActive(index)"
+        v-else
     >
       {{item}}
+      <button @click="del(index)">del</button>
     </li>
   </div>
 
@@ -27,13 +25,17 @@
       el:"#box",
       data() {
         return {
-          datalist: ['aa','bb','cc','dd'],
-          isSelect:-1
+          input:'',
+          datalist:['我的']
         }
       },
       methods: {
-        handleActive(index) {
-          this.isSelect = index
+        addTo () {
+          this.datalist.push(this.input)
+          this.input = ''
+        },
+        del(index) {
+          this.datalist.splice(index, 1)
         }
       },
     })

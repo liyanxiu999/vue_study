@@ -4,21 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/vue.js"></script>
-  <title>Document</title>
-  <style>
-    .active {
-      background-color: cyan;
-    }
-  </style>
+  <title>过滤应用-过滤表达式</title>
 </head>
 <body>
   <div id="box">
-    <li v-for="(item,index) in datalist"
-        :key="index"
-        :class="{active:index === isSelect}"
-        @click = "handleActive(index)"
-    >
-      {{item}}
+    <input type="text" v-model="mytext">
+    <li v-for="(data,i) in mymethod()"
+        :key="i">
+      {{data}}  
     </li>
   </div>
 
@@ -27,13 +20,14 @@
       el:"#box",
       data() {
         return {
-          datalist: ['aa','bb','cc','dd'],
-          isSelect:-1
+          mytext:'',
+          datalist:['asd','sxd','qwe','adsf','sssawq']
         }
       },
       methods: {
-        handleActive(index) {
-          this.isSelect = index
+        mymethod() {
+          // 依赖此状态的函数也会重新执行
+          return this.datalist.filter(item=>item.includes(this.mytext))
         }
       },
     })

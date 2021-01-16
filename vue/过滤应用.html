@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/vue.js"></script>
+  <title>过滤应用</title>
+</head>
+<body>
+  <div id="box">
+    <input type="text" @input="handleInput">
+    <ul>
+      <li v-for="(item,index) in datalist"
+          :key="index"
+      >{{item}}</li>
+    </ul>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el:"#box",
+      data() {
+        return {
+          datalist:['asd','sxd','qwe','adsf','sssawq'],
+          originlist:['asd','sxd','qwe','adsf','sssawq']//防止在删掉输入数据是无法返回原数组，备用数组
+        }
+      },
+      methods: {
+        handleInput(evt) {
+          console.log(evt.target.value)
+          this.datalist = this.originlist.filter(item=> item.includes(evt.target.value))
+          console.log(this.datalist)
+        }
+      },
+    })
+  </script>
+</body>
+</html>

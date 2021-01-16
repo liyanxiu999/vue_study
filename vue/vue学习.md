@@ -36,5 +36,32 @@
     //  Vue.set(vm.classobj,"d",true)新开一条通道，插入想输入得值 
     //  Vue.set(vm.styleobj,"fontSize",'40px')新开一条通道，插入想输入得值 
   </script>
-  
+  ### .ignore文件配置方法
+    1.配置语法：
+　　  以斜杠“/”开头表示目录；
+　　  以星号“*”通配多个字符；
+　　  以问号“?”通配单个字符
+      以方括号“[]”包含单个字符的匹配列表；
+　　  以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；
+　　  此外，git 对于 .ignore 配置文件是按行从上到下进行规则匹配的，意味着如果前面的规则匹配的范围更大，则后面的规则将不会生效；
+    2、示例：
+    （1）规则：fd1/*
+　　　　  说明：忽略目录 fd1 下的全部内容；注意，不管是根目录下的 /fd1/ 目录，还是某个子目录 /child/fd1/ 目录，都会被忽略；
+    （2）规则：/fd1/*
+　　　　  说明：忽略根目录下的 /fd1/ 目录的全部内容；
 
+  ### template
+    template就是一个包装元素，不会真正的创建在页面上
+  ### 条件渲染
+    * key值：
+      跟踪每个节点的身份，从而重用和重新排序现有的元素
+      理想的key值是没想都有的且卫衣的id。data.id
+    * 数组更新检测
+      a.vue将被侦听的数组的变更方法进行了包裹，所以他们也将会触发视图更新。这些包裹方法包括：
+      push(),pop(),shift(),unshift(),splice(),sort(),reverse()
+      b.filter(),concat()和slice(),新数组替换旧数组
+      c.不能检测一下变动的数组
+        vm.item[indexOf(item)] = newValue
+        解决方法：
+          1.Vue.set(example.items,indexOf(item),newValue)
+          2.splice
