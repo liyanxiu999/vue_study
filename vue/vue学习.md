@@ -65,3 +65,6 @@
         解决方法：
           1.Vue.set(example.items,indexOf(item),newValue)
           2.splice
+  ### 修饰符
+    a. .stop修饰符：阻止冒泡行为 
+    b. .prevent修饰符：阻止默认行为

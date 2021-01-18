@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <style>
+    #overlay {
+      background: rgba(0, 0, 0, 0.6);
+      width: 100%;
+      margin: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    #center {
+      background: #fff;
+      border-radius: 5px;
+      padding-top: 15px;
+      padding-left: 30px;
+      padding-bottom: 15px;
+      width: 290px;
+      height: 160px;
+      margin: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- 模态框 -->
+  <div id="box">
+    <button @click="isShow=true">Show</button>
+    <!-- <div id="overlay" v-show="isShow" @click="isShow=false ">
+      <div id="center" @click.stop>
+        <div>用户名：<input type="text"></div>
+        <div>密码：<input type="password" name="" id=""></div>
+        <div><button>登录</button></div>
+      </div>
+    </div> -->
+    <div id="overlay" v-show="isShow" @click.self="isShow=false ">
+      <div id="center" >
+        <div>用户名：<input type="text"></div>
+        <div>密码：<input type="password" name="" id=""></div>
+        <div><button>登录</button></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el:"#box",
+      data() {
+        return {
+          isShow:false
+        }
+      },
+    })
+  </script>
+</body>
+</html>
