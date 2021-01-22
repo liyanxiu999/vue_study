@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <h2>多选框</h2>
+    <input type="checkbox" v-model="checkGroup" value="vue">vue
+    <input type="checkbox" v-model="checkGroup"  value="react">react
+    <input type="checkbox" v-model="checkGroup"  value="javascript">javascript
+    <button @click="handleSubmit()">提交</button>
+    <h2>checkbox-记住密码</h2>
+    <input type="checkbox" v-model="isRem">记住密码
+    <button @click="handleLogin()">提交</button>
+    <h2>radio</h2>
+    <input type="radio" v-model="one" value="vue" name="once" >vue
+    <input type="radio" v-model="one" value="react" name="once" >react
+    <input type="radio" v-model="one" value="javascript" name="once" >javascript
+    <button @click="handleRadio()">提交</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el:"#box",
+      data() {
+        return {
+          checkGroup:[],
+          isRem:false,
+          one:''
+        }
+      },
+      methods: {
+        handleSubmit() {
+          console.log("提交",this.checkGroup)
+        },
+        handleLogin() {
+          console.log("提交",this.isRem)
+        },
+        handleRadio() {
+          console.log("提交",this.one)
+
+        }
+      },
+    })
+  </script>
+</body>
+</html>
