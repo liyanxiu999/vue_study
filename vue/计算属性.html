@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <h2>计算属性</h2>
+    <div>{{mycomputedname}}</div>
+    <div>{{mycomputedname}}</div>
+    <div>{{mycomputedname}}</div>
+    <h2>方法</h2>
+    <div>{{mymethodsname()}}</div>
+    <div>{{mymethodsname()}}</div>
+    <div>{{mymethodsname()}}</div>
+  </div>
+  <script>
+    var vm = new Vue({
+      el:"#box",
+      data() {
+        return {
+          myname:"xiaoming1"
+        }
+      },
+      computed: {
+        mycomputedname() {
+          console.log("mycomputedname")
+          return this.myname.slice(0,1).toUpperCase() + this.myname.slice(1) 
+        }
+      },
+      methods: {
+        mymethodsname() {
+          console.log("mymethodsname")
+          return this.myname.slice(0,1).toUpperCase() + this.myname.slice(1) 
+        }
+      },
+    })
+    // 2. computed:注重结果
+    //     a. 逻辑计算，防止模板过重，有缓存
+    //     b. 监听：依赖修改，get方法必须return
+    // 3. methods
+    //    a. 点击事件处理函数，return不是必须的
+    //    b. 函数表达式的逻辑处理，没有缓存
+  </script>
+</body>
+</html>

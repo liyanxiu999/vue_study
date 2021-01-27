@@ -20,12 +20,12 @@
   <div id="box">
     <div v-if="list.length === 0">购物车为空</div>
     <div v-else>
-      <input type="checkbox" @change="handleAllChecked" v-model="isAllChecked">全选|全不选
+      <input type="checkbox" v-model="isAllChecked">全选|全不选
       <ul>
         <li v-for="(item,index) in list"
           :key="item.id"
         >
-          <input type="checkbox" v-model="checkGroup" :value="item" @change="change">
+          <input type="checkbox" v-model="checkGroup" :value="item">
           <img :src="item.pic" >
           <div>
             <div>名称：{{item.name}}</div>
@@ -50,7 +50,6 @@
       data() {
         return {
           checkGroup:[],
-          isAllChecked:false,
           list:[{
             name:"商品1",
             price:10,
@@ -90,25 +89,22 @@
           this.list.splice(index,1)
           //删除checkGroup数据
           this.checkGroup = this.checkGroup.filter(item => item.id !== delId)
-          //刷新选中数据
-          this.change()
-        },
-        handleAllChecked() {
-          if(this.isAllChecked) {
-            this.checkGroup = this.list
-            console.log(this.isAllChecked)
-          }else {
-            this.checkGroup = []
-          }
-        },
-        change() {
-          if(this.checkGroup.length === this.list.length) {
-            this.isAllChecked = true
-          }else {
-            this.isAllChecked = false
-          }
         }
       },
+      computed: {
+        isAllChecked: {
+          set(isChecked) {
+            if(isChecked) {
+              this.checkGroup = this.list
+            }else {
+              this.checkGroup = []
+            }
+          },
+          get() {
+            return this.checkGroup.length === this.list.length
+          }
+        }
+      }
     })
   </script>
 </body>

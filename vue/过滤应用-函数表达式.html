@@ -9,7 +9,7 @@
 <body>
   <div id="box">
     <input type="text" v-model="mytext">
-    <li v-for="(data,i) in mymethod()"
+    <li v-for="(data,i) in mycomputed"
         :key="i">
       {{data}}  
     </li>
@@ -24,8 +24,8 @@
           datalist:['asd','sxd','qwe','adsf','sssawq']
         }
       },
-      methods: {
-        mymethod() {
+      computed: {
+        mycomputed() {
           // 依赖此状态的函数也会重新执行
           return this.datalist.filter(item=>item.includes(this.mytext))
         }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    用户名：<input type="text" v-model.lazy="mytext">{{mytext}}
+    年龄：<input type="text" v-model.number="myage">
+    密码：<input type="password" v-model.trim="mypassword">|{{mypassword}}|
+    <button @click="handleClick">登录</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el:"#box",
+      data() {
+        return {
+          mytext:'',
+          myage:18,
+          mypassword:''
+        }
+      },
+      methods: {
+        handleClick() {
+          // console.log(this.mytext)
+          // console.log(this.myage)
+          console.log(this.mypassword)
+        }
+      },
+    })
+  </script>
+</body>
+</html>
