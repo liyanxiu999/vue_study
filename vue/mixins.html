@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="box" @click="handleClick()">
+    {{total}}
+  </div>
+
+  <script>
+    var obj = {
+      methods: {
+        handleClick() {
+          console.log("外部定义")
+        }
+      },
+      computed: {
+        total() {
+          return "11111111111"
+        }
+       }
+    }
+    new Vue({
+      el:"#box",
+      data() {
+        return {
+          
+        }
+      }, 
+      mixins:[obj],
+      methods: {
+        handleClick() {
+          console.log("内部定义")
+        }
+      },
+    })
+  </script>
+</body>
+</html>

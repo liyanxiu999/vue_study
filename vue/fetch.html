@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <button @click="handleFetch">fetch</button>
+  </div>
+
+  <script>
+    new Vue({
+      el:"#box",
+      data:{
+        list:[]
+      },
+      methods: {
+        handleFetch() {
+          // console.log("fetch",fetch)
+          fetch("./json/test.json")
+            .then (res => {
+              console.log(res)
+              return res.json()
+            })
+            .then(res=>{
+              console.log(res)
+            })
+
+        // post-1
+        // fetch("**",{
+        //   method:'post',
+        //   headers: {
+        //     "Content-Type":"application/x-www-form-urlencoded"
+        //   },
+        //   body:"name=lyx&age=20",//form表单形式
+        //   credentials:"include"//默认不含有cookie，带上这个需求即可含有cookie
+        // }).then(res=>res.json()).then(res=>{console.log(res)})
+        // // post-2
+        // fetch("**",{
+        //   method:'post',
+        //   headers: {
+        //     "Content-Type":"application/json"
+        //   },
+        //   body:JSON.stringify({
+        //     name:"lyx",
+        //     age:"20"
+        //   }),//字符串形式
+        //   credentials:"include"//默认不含有cookie，带上这个需求即可含有cookie
+        // }).then(res=>res.json()).then(res=>{console.log(res)})
+        },
+
+      },
+    })
+  </script>
+</body>
+</html>

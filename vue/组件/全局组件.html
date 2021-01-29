@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+   <div id="box">
+     <nav1></nav1>
+   </div>
+
+   <script>
+     Vue.component("nav1",{
+       template:`
+          <div style="background: pink;">
+            <button @click="handleReturn">返回</button>
+            <span>导航栏{{m, yname}}</span>
+            <button @click="handleClick">首页</button>
+          </div>
+       `,
+       methods: {
+         handleClick() {
+           console.log("首页")
+         },
+         handleReturn() {
+           console.log("返回")
+         }
+       },
+       data() {
+        return {
+          myname:"lyx"
+        }
+       }
+     })
+     new Vue({
+       el:"#box"
+     })
+   </script>
+</body>
+</html>
