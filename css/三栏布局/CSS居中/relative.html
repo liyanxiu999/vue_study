@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            margin: auto;
+        }
+        .parent {
+            float: left;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            clear: both;
+        }
+        .child {
+            border: 1px solid cyan;
+            position: relative;
+            left: -50%;
+            top: -50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- CSS居中：使用浮动配合相对定位来进行水平居中
+        1. 场景： 无需知道要居中元素的宽度，缺点是需要一个多余的元素来包裹要居中的元素
+        2. 原理：把浮动元素相对定位到父元素宽度50%的地方，但这时元素还不是居中的，而是比居中的位置多出自身宽度的一半，这是需要他里面的子元素再用一个相对定位，把多出自身一般的宽度拉回来，而相对定位正式向对自身来进行定位的，所以自身壁板的宽度只需要把left或者right设为50%就可以了，因而不用知道自身的实际宽度是多少。 -->
+    <div class="box">
+        <div class="parent">
+            <div class="child">
+                我水平居中啦
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .float .left {
+            float: left;
+            width: 300px;
+            background-color: yellow;
+        }
+        .float .center {
+            background-color: green;
+        } 
+        .float .right {
+            width: 300px;
+            float: right;
+            background-color: cyan;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 1. float实现
+            优点：兼容性好
+            缺点：脱离文本流，DOM节点顺序错误
+            原理：左右两栏浮动，脱离文本流，中间一栏不动
+            注意：中间栏写在左右两栏后
+            <div class="left">1</div>
+            <div class="right">3</div>
+            <div class="center">2</div>
+    -->
+
+    <section class="float">
+        <article class="left-center-right">
+            <div class="left">1</div>
+            <div class="right">3</div>
+            <div class="center">2</div>
+        </article>
+    </section>
+</body>
+</html>

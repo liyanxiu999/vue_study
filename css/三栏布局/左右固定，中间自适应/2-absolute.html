@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .absolute article > div {
+            position: absolute;
+        }
+        .absolute .left {
+            left: 0;
+            width: 300px;
+            background-color: cyan;
+        }
+        .absolute .center {
+            left: 300px;
+            right: 300px;
+            background-color: #bfa;
+        }
+        .absolute .right {
+            right: 0;
+            width: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 2. absolute实现
+        优点：快捷
+        缺点：脱离文本流 
+    -->
+    <section class="absolute">
+        <article class="left-center-right">
+            <div class="left">1</div>
+            <div class="center">2</div>
+            <div class="right">3</div>
+        </article>
+    </section>
+</body>
+</html>

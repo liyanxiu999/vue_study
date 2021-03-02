@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table .left-center-right {
+            width: 100%;
+            height: 100%;
+            display: table;
+        }
+        .table .left-center-right div {
+            display: table-cell;
+        }
+        .left,.right {
+            width: 300px;
+            background-color: #bfa;
+        }
+        .center {
+            background-color: red;
+        }
+     </style>
+</head>
+<body>
+    <!-- 5.table实现
+        优点：兼容性好、快捷
+        缺点：单元格限制，当某个但愿个高度调整时，其他单元格也会被调整
+    -->
+    <section class="table">
+        <article class="left-center-right">
+            <div class="left">1</div>
+            <div class="center">2</div>
+            <div class="right">3</div>
+        </article>
+    </section>
+</body>
+</html>

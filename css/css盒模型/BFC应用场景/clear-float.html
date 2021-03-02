@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box {
+            border: 2px solid red;
+            width: 300px;
+            /* 根据BFC布局规则第五条，计算BFC高度浮动元素也包含在内 */
+            overflow: hidden;/*所以为达到清除浮动，可触发box BFC,在box计算高度时，浮动元素也包含在内*/
+        }
+        .child {
+            border: 2px solid #fcc;
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+    </style>
+    <div class="box">
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+</body>
+</html>

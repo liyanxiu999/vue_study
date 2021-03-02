@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid .left-center-right {
+            width: 100%;
+            display: grid;
+            /* 属性定义每一行的行高 */
+            grid-template-rows: 100px;
+            /* 属性定义每一列的列宽 */
+            grid-template-columns: 300px auto 300px;
+        }
+        .left,.right {
+            background-color: #bfa;
+        }
+        .center {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 6.grid实现
+        优点：将网格布局标准化，将复杂问题简单化
+        缺点：兼容性差 -->
+    <section class="grid">
+        <article class="left-center-right">
+            <div class="left">1</div>
+            <div class="center">2</div>
+            <div class="right">3</div>
+        </article>
+    </section>
+</body>
+</html>

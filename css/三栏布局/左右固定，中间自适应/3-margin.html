@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .margin .center {
+            width:100%;
+            float:left;
+        }
+        .margin .main {
+            margin: 0 100px;
+            background:yellow;
+        }
+        .margin .left {
+            float:left;
+            width: 300px;
+            margin-left: -100%;
+            background: green;
+        }
+        .margin .right {  
+            width: 300px;
+            float:right;
+            margin-left: -300px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3. margin 负值实现
+        优点：兼容性好
+        缺点：节点顺序错误，需要在外层多添加一层div。出问题难以排查 
+    -->
+    <section class="margin">
+        <article class="left-center-right">
+            <div class="center">
+                <div class="main">2</div>
+            </div>
+            <div class="left">1</div>
+            <div class="right">3</div>
+        </article>
+    </section>
+</body>
+</html>

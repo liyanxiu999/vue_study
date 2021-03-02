@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        p {
+            color: #f55;
+            background-color: #fcc;
+            width: 200px;
+            line-height: 100px;
+            text-align: center;
+            margin: 50px;
+            /* 根据BFC布局规则第一条：box垂直方向的距离由margin决定，属于同一个BFC的两个相邻box的margin会发生重叠 */
+            /* 解决方法：只需要在生成一个BFC，使两个BFC互不干扰 */
+        }
+        .wrap {
+            overflow: hidden;
+        }
+    </style>
+    <p>hahahha</p>
+    <div class="wrap">
+        <p>hehehhe</p>
+    </div>
+</body>
+</html>
